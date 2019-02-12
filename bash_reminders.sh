@@ -8,6 +8,6 @@
 # will use functions instead
 
 #add to ~/.bashrc file
-function td() { echo $(date "+%Y-%m-%d %H:%M:%S") $@ >> davestodo.txt; }
-function tds() { nl davestodo.txt; }
-function tdd() { sed -i.bak -e "${1}d" davestodo.txt; }
+function td() { echo $(date "+%Y-%m-%d %H:%M:%S") $@ >> /tmp/davestodo.txt; }
+function tds() { nl /tmp/davestodo.txt; }
+function tdd() { sed -i.bak -e "${1}d" /tmp/davestodo.txt; }

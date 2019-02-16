@@ -8,8 +8,9 @@
 # will use functions instead
 
 #add to ~/.bashrc file
-function td() { echo $(date "+%Y-%m-%d %H:%M:%S") '$@' >> /tmp/davestodo.txt; }
-    # TODO: escape aphostrophe and exclamation points
+function td() { if [ -n "$@" ] ; then echo $(date "+%Y-%m-%d %H:%M:%S") "$@" >> /tmp/davestodo.txt; fi }
+    #TODO: escape aphostrophe and exclamation points
+    #TODO: fix empty arg adding empty entry
 function tds() { nl /tmp/davestodo.txt; }
-function tdd() { sed -i.bak -e "${1}d" /tmp/davestodo.txt; }
+function tdd() { if [ -n "$1" ] ; then sed -i.bak -e "${1}d" /tmp/davestodo.txt; fi }
     #TODO: fix empty arg deleting entire list
